@@ -26,8 +26,7 @@ function loadCss() {
     css.innerHTML = `
     /* Prevent inconsistencies for positioning */
     .nightowl-light #webPage,
-    .nightowl-dark nav,
-    nightowl-switcher-default{
+    .nightowl-dark nav{
         filter: invert(0%);
     }
     
@@ -37,8 +36,7 @@ function loadCss() {
     }
 
     .nightowl-dark #webPage,
-    .nightowl-dark nav,
-    #nightowl-switcher-default{
+    .nightowl-dark nav{
         filter: invert(100%) hue-rotate(180deg);
     }
 
