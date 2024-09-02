@@ -4,11 +4,13 @@ const DARK = 'dark'
 let store: Storage | null = null
 const persistPreference = true
 let mode = LIGHT
+let parentElement:string|undefined
 let automaticInitialization = true
 let toggleButtonMode = 'currentState'
 interface NightowlOptions {
     defaultMode?: 'light' | 'dark'
     toggleButtonMode?: 'currentState' | 'newState'
+    parentEle?: string
 }
 
 try {
@@ -63,6 +65,7 @@ function loadCss() {
 
 export function createNightowl(options: NightowlOptions) {
     automaticInitialization = false
+    parentElement = options.parentEle
     if (options.defaultMode === 'dark') {
         mode = DARK
     }
@@ -145,9 +148,6 @@ function setSwitcherIcon() {
 function initializeSwitcher() {
     const switcher = document.createElement('div')
     switcher.id = 'nightowl-switcher-default'
-    // switcher.style.position = 'fixed'
-    // switcher.style.left = 'calc(100vw - 100px)'
-    // switcher.style.top = 'calc(10px)'
     switcher.style.width = '50px'
     switcher.style.height = '50px'
     switcher.style.borderRadius = '50%'
@@ -157,10 +157,8 @@ function initializeSwitcher() {
     switcher.style.justifyContent = 'center'
     switcher.style.alignItems = 'center'
     switcher.style.cursor = 'pointer'
-    // switcher.style.zIndex = '9999'
     switcher.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)'
     switcher.style.transition = 'all 0.3s ease-in-out'
-    // switcher.style.overflow = 'hidden'
     switcher.style.color = toggleButtonMode === 'newState' ? 'white' : 'black'
 
     switcher.addEventListener('click', () => {
@@ -172,7 +170,15 @@ function initializeSwitcher() {
     if(navMenu){
         navMenu.appendChild(switcher)
     }
+    else if(parentElement){
+        document.body.appendChild(switcher)
+    }
     else{
+        switcher.style.position = 'fixed'
+        switcher.style.left = 'calc(100vw - 100px)'
+        switcher.style.top = 'calc(10px)'
+        switcher.style.zIndex = '9999'
+        switcher.style.overflow = 'hidden'
         document.body.appendChild(switcher)
     }
     setSwitcherIcon()
