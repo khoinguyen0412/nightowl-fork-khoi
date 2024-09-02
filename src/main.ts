@@ -23,7 +23,8 @@ function loadCss() {
     const css = document.createElement('style')
     css.innerHTML = `
     /* Prevent inconsistencies for positioning */
-    .nightowl-light body {
+    .nightowl-light #webPage,
+    .nightowl-dark nav{
         filter: invert(0%);
     }
     
@@ -32,7 +33,8 @@ function loadCss() {
     background-color: #111;
     }
 
-    .nightowl-dark body {
+    .nightowl-dark #webPage,
+    .nightowl-dark nav{
         filter: invert(100%) hue-rotate(180deg);
     }
 
