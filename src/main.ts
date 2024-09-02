@@ -167,12 +167,8 @@ function initializeSwitcher() {
         toggleMode()
         storeModeInLocalStorage()
     })
-
-    const navMenu = document.getElementById("nav-menu")
-    if(navMenu){
-        navMenu.appendChild(switcher)
-    }
-    else if(parentElement){
+    
+    if(parentElement){
         parentElement.appendChild(switcher)
     }
     else{
