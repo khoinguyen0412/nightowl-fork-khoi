@@ -67,10 +67,16 @@ Sets the default mode for users that have not set a preference yet and do not ha
 -   **Type:** `'currentState' | 'newState'`
 -   **Default:** `'currentState'`
 
+### parentEle
+
+-   **Type:** `'element's ID'`
+-   **Default:** `''`
+
 Configures what state of the toggle button should be shown to the user.
 
 -   `currentState` - Shows the state that is currently applied to the website.
 -   `newState` - Shows the state that will be applied when the user clicks the button.
+-   `parentEle` - Optional choice where to append the toggle ( using parent element's id)
 
 ## Customize Dark Mode
 
