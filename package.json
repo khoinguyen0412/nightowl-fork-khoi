@@ -1,6 +1,6 @@
 {
     "name": "@khoinguyen0412/nightowl-fork-khoi",
-    "version": "0.0.14",
+    "version": "0.0.16",
     "type": "module",
     "license": "MIT",
     "main": "dist/nightowl.js",
