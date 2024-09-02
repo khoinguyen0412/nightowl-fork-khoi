@@ -47,8 +47,9 @@ Then add these lines to your HTML file:
     import { createNightowl } from '@khoinguyen0412/nightowl'
 
     createNightowl({
-        defaultMode: 'dark',
-        toggleButtonMode: 'newState'
+          defaultMode: 'dark',
+          toggleButtonMode: 'newState',
+          parentEle: 'navbar'
     })
 </script>
 ```
