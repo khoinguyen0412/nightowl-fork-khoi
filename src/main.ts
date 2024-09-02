@@ -4,7 +4,7 @@ const DARK = 'dark'
 let store: Storage | null = null
 const persistPreference = true
 let mode = LIGHT
-let parentElement:string|undefined
+let parentElement:HTMLElement | null
 let automaticInitialization = true
 let toggleButtonMode = 'currentState'
 interface NightowlOptions {
@@ -65,7 +65,9 @@ function loadCss() {
 
 export function createNightowl(options: NightowlOptions) {
     automaticInitialization = false
-    parentElement = options.parentEle
+    if(options.parentEle){
+        parentElement = document.getElementById(options.parentEle)
+    }
     if (options.defaultMode === 'dark') {
         mode = DARK
     }
@@ -171,7 +173,7 @@ function initializeSwitcher() {
         navMenu.appendChild(switcher)
     }
     else if(parentElement){
-        document.body.appendChild(switcher)
+        parentElement.appendChild(switcher)
     }
     else{
         switcher.style.position = 'fixed'
